@@ -321,8 +321,9 @@ Let's move into the build directory that we created earlier inside the rpi folde
 Now we need to run the configure script to configure our build. This configure script is actually located inside the qt sources directory. We don't want to build within that source directory as it can get messy, so we will access it from
 within this build directory. This is the command you need to run to configure the build, including all the necessary options:
 
-	../qt-everywhere-src-5.15.0/configure -release -opengl es2  -eglfs -device linux-rasp-pi4-v3d-g++ -device-option CROSS_COMPILE=~/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf- -sysroot ~/rpi/sysroot -prefix /usr/local/qt5.15 -extprefix ~/rpi/qt5.15 -opensource -confirm-license -skip qtscript -skip qtwayland -skip qtwebengine -nomake tests -make libs -pkg-config -no-use-gold-linker -v -recheck
+	../qt-everywhere-src-5.15.0/configure -release -opengl es2  -eglfs -device linux-rasp-pi3-vc4-g++ -device-option CROSS_COMPILE=/home/<your_username>/rpi/tools/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf- -sysroot ~/rpi/sysroot -prefix /usr/local/qt5.15 -extprefix ~/rpi/qt5.15 -opensource -confirm-license -skip qtscript -skip qtwayland -skip qtwebengine -nomake tests -make libs -pkg-config -no-use-gold-linker -v -recheck
 	
+Maybe you need to make sure all "~" paths are works.
 The configure script may take a few minutes to complete. Once it is completed you should get a summary of what has been configured. Make sure the following options appear:
 
 <pre><code>
